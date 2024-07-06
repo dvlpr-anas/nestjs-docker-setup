@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/node/src/app
+      - /node/src/app/node_modules
+    command: npm run start:dev
+    environment:
+      PORT: 3000
+    ports:
+      - 8080:3000
